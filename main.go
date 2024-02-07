@@ -19,7 +19,7 @@ func HelloWorldWorkflow(ctx workflow.Context, name string) (string, error) {
 		ScheduleToCloseTimeout: time.Minute,
 	}
 	ctx = workflow.WithActivityOptions(ctx, ao)
-	name += "hey "
+	name += "hey: "
 
 	var result string
 	err := workflow.ExecuteActivity(ctx, HelloWorldActivity, name).Get(ctx, &result)
